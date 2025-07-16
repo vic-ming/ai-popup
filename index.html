@@ -28,6 +28,18 @@
         <div class="ai_search_popup_content">
           <!-- 關閉 -->
           <img src="/assets/images/popup-close.svg" alt="close" class="ai_search_popup_close" onclick="closeAiSearch()">
+
+          <!-- Tab -->
+          <div class="ai_search_popup_content_tab">
+            <div class="ai_search_popup_content_tab_item" id="ai_search_popup_content_tab_search" onclick="handleTabClick('search')">
+              <img src="/assets/images/popup-search.svg" alt="search">
+              <div class="ai_search_popup_content_tab_item_text">詢問AI</div>
+            </div>
+            <div class="ai_search_popup_content_tab_item" id="ai_search_popup_content_tab_recommend" onclick="handleTabClick('recommend')">
+              <img src="/assets/images/popup-chat-active.svg" alt="recommend">
+              <div class="ai_search_popup_content_tab_item_text">關鍵字推薦</div>
+            </div>
+          </div>
           <!-- 詢問AI -->
           <div class="ai_search_popup_content_search">
             <div class="popup_title">
@@ -233,7 +245,7 @@
               <!-- 推薦輪播 -->
               <div class="popup_recommend_content_area">
                 <div class="popup_recommend_content_title">
-                  機械加工／傳動元件
+                  醫療器械／檢測設備
                   <div class="popup_recommend_content_title_more">
                     看更多
                     <img src="/assets/images/popup-angle-right-sm.svg" alt="more">
@@ -244,6 +256,64 @@
                     <img src="./assets/images/popup-angle-left.svg" alt="prev">
                   </a>
                   <div class="popup_recommend_content_swiper swiper" id="popup_recommend_content_swiper_2">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide slide_product_item">
+                        <img src="/assets/images/popup-example-2.png" alt="example">
+                        <div class="product_info">
+                          <div class="product_info_model">NeuroScan M2</div>
+                          <div class="product_info_title">賽維亞神經科技</div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide slide_product_item">
+                        <img src="/assets/images/popup-example-2.png" alt="example">
+                        <div class="product_info">
+                          <div class="product_info_model">NeuroScan M2</div>
+                          <div class="product_info_title">賽維亞神經科技</div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide slide_product_item">
+                        <img src="/assets/images/popup-example-2.png" alt="example">
+                        <div class="product_info">
+                          <div class="product_info_model">NeuroScan M2</div>
+                          <div class="product_info_title">賽維亞神經科技</div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide slide_product_item">
+                        <img src="/assets/images/popup-example-2.png" alt="example">
+                        <div class="product_info">
+                          <div class="product_info_model">NeuroScan M2</div>
+                          <div class="product_info_title">賽維亞神經科技</div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide slide_product_item">
+                        <img src="/assets/images/popup-example-2.png" alt="example">
+                        <div class="product_info">
+                          <div class="product_info_model">NeuroScan M2</div>
+                          <div class="product_info_title">賽維亞神經科技</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="javascript:;" class="swiper-button-next cursor swiper-next-2">
+                    <img src="./assets/images/popup-angle-right.svg" alt="next">
+                  </a>   
+                </div>
+               
+              </div>
+              <!-- 推薦輪播 -->
+              <div class="popup_recommend_content_area">
+                <div class="popup_recommend_content_title">
+                  機械加工／傳動元件
+                  <div class="popup_recommend_content_title_more">
+                    看更多
+                    <img src="/assets/images/popup-angle-right-sm.svg" alt="more">
+                  </div>
+                </div>
+                <div class="swiper-container">
+                  <a href="javascript:;" class="swiper-button-prev cursor swiper-prev-3">
+                    <img src="./assets/images/popup-angle-left.svg" alt="prev">
+                  </a>
+                  <div class="popup_recommend_content_swiper swiper" id="popup_recommend_content_swiper_3">
                     <div class="swiper-wrapper">
                       <div class="swiper-slide slide_product_item">
                         <img src="/assets/images/popup-example-1.png" alt="example">
@@ -282,12 +352,13 @@
                       </div>
                     </div>
                   </div>
-                  <a href="javascript:;" class="swiper-button-next cursor swiper-next-2">
+                  <a href="javascript:;" class="swiper-button-next cursor swiper-next-3">
                     <img src="./assets/images/popup-angle-right.svg" alt="next">
                   </a>   
                 </div>
                
               </div>  
+              
             </div>
           </div>
         </div>
@@ -300,7 +371,30 @@
       var recommendSwiper = new Swiper ('#popup_recommend_content_swiper_1', {
         loop: true,
         pagination: false,
-        slidesPerView: 2.2,
+        slidesPerView: 1.5,
+        breakpoints: {
+          768: {
+            slidesPerView: 2.2,
+          },
+          650: {
+            slidesPerView: 3.5,
+          },
+          575:{
+            slidesPerView: 2.8,
+          },
+          525:{
+            slidesPerView: 2.4,
+          },
+          475:{
+            slidesPerView: 2.2,
+          },
+          425:{
+            slidesPerView: 2,
+          },
+          375:{
+            slidesPerView: 1.5,
+          }
+        },
         spaceBetween: 8,
         navigation: {
           nextEl: '.swiper-next-1',
@@ -310,21 +404,114 @@
       var recommendSwiper2 = new Swiper ('#popup_recommend_content_swiper_2', {
         loop: true,
         pagination: false,
-        slidesPerView: 2.2,
+        slidesPerView: 1.5,
+        breakpoints: {
+          768: {
+            slidesPerView: 2.2,
+          },
+          650: {
+            slidesPerView: 3.5,
+          },
+          575:{
+            slidesPerView: 2.8,
+          },
+          525:{
+            slidesPerView: 2.4,
+          },
+          475:{
+            slidesPerView: 2.2,
+          },
+          425:{
+            slidesPerView: 2,
+          },
+          375:{
+            slidesPerView: 1.5,
+          }
+        },
         spaceBetween: 8,
         navigation: {
           nextEl: '.swiper-next-2',
           prevEl: '.swiper-prev-2',
         }
       })     
+      var recommendSwiper3 = new Swiper ('#popup_recommend_content_swiper_3', {
+        loop: true,
+        pagination: false,
+        slidesPerView: 1.5,
+        breakpoints: {
+          768: {
+            slidesPerView: 2.2,
+          },
+          650: {
+            slidesPerView: 3.5,
+          },
+          575:{
+            slidesPerView: 2.8,
+          },
+          525:{
+            slidesPerView: 2.4,
+          },
+          475:{
+            slidesPerView: 2.2,
+          },
+          425:{
+            slidesPerView: 2,
+          },
+          375:{
+            slidesPerView: 1.5,
+          }
+        },
+        spaceBetween: 8,
+        navigation: {
+          nextEl: '.swiper-next-3',
+          prevEl: '.swiper-prev-3',
+        }
+      })     
 
+      // 開啟 AI 搜索
       function openAiSearch(){
         document.querySelector('#ai_search_popup').style.display = 'flex';
       }
+      // 關閉 AI 搜索
       function closeAiSearch(){
         document.querySelector('#ai_search_popup').style.display = 'none';
       }
 
+      // 監聽視窗寬度
+      resize();
+      window.addEventListener('resize', resize);
+      function resize(){
+        const windowWidth = window.innerWidth;
+        // 小於 768 為手機版
+        if (windowWidth <= 768){
+          document.querySelector('.ai_search_popup_content').classList.add('isMobile');
+          document.querySelector('.ai_search_popup_content_search').classList.add('isActive');      
+          document.querySelector('.ai_search_popup_content_recommend').classList.remove('isActive');
+          document.querySelector('#ai_search_popup_content_tab_search').classList.add('isTabActive');
+          document.querySelector('#ai_search_popup_content_tab_recommend').classList.remove('isTabActive');
+        } else {
+          document.querySelector('.ai_search_popup_content').classList.remove('isMobile');
+          document.querySelector('#ai_search_popup_content_tab_search').classList.remove('isTabActive');
+          document.querySelector('#ai_search_popup_content_tab_recommend').classList.remove('isTabActive');
+        }
+      }
+
+      // 切換 Tab
+      function handleTabClick(tab){
+        if(tab === 'search'){
+          document.querySelector('#ai_search_popup_content_tab_search').classList.add('isTabActive');
+          document.querySelector('#ai_search_popup_content_tab_recommend').classList.remove('isTabActive');
+          document.querySelector('.ai_search_popup_content_search').classList.add('isActive');
+          document.querySelector('.ai_search_popup_content_recommend').classList.remove('isActive');
+        }else if(tab === 'recommend'){
+          document.querySelector('#ai_search_popup_content_tab_search').classList.remove('isTabActive');
+          document.querySelector('#ai_search_popup_content_tab_recommend').classList.add('isTabActive');
+          document.querySelector('.ai_search_popup_content_search').classList.remove('isActive');
+          document.querySelector('.ai_search_popup_content_recommend').classList.add('isActive');
+        }
+      } 
+      
+      // 提問 Input 輸入
       function popup_suggest_input_text_oninput(){
         const popup_suggest_input_text = document.querySelector('#popup_suggest_input_text');
         if(popup_suggest_input_text.value.length > 0){
@@ -334,6 +521,7 @@
         }
       }
 
+      // 提問 Input 送出
       function handleSend(){
         const popup_suggest_input_text = document.querySelector('#popup_suggest_input_text');
         popup_suggest_input_text.value = '';
