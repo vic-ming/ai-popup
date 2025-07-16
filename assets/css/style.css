@@ -361,6 +361,7 @@
   height: 100%;
   border-radius: 10px;
   overflow: hidden;
+  cursor: pointer;
 }
 .popup_recommend_content .popup_recommend_content_area .swiper-container .slide_product_item .product_info{
   display: flex;
