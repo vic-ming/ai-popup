@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="icon" href="/assets/favicon.ico"> -->
+    <title>popup ui</title>
+    <!-- 字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+    <!-- 共用樣式 -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- swiper -->
+    <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
+    <script src="/assets/js/swiper-bundle.min.js"></script>
+  </head>
+  <noscript>您的瀏覽器不支援JavaScript功能，若網頁功能無法正常使用時，請開啟瀏覽器JavaScript狀態</noscript>
+  <body>
+    <div style="width: 100%; height: 100vh; background-color: #fff; display: flex; align-items: center; justify-content: center;">
+      <button onclick="openAiSearch()">開啟 AI 搜索</button>
+
+
+      <!-- popup -->
+      <div id="ai_search_popup" class="ai_search_popup">
+        <div class="ai_search_popup_content">
+          <!-- 關閉 -->
+          <img src="/assets/images/popup-close.svg" alt="close" class="ai_search_popup_close" onclick="closeAiSearch()">
+          <!-- 詢問AI -->
+          <div class="ai_search_popup_content_search">
+            <div class="popup_title">
+              <img src="/assets/images/popup-search.svg" alt="search">
+              <div class="popup_title_text">詢問AI</div>
+            </div>
+
+            <!-- 詢問的紀錄 -->
+            <div class="popup_questions">
+              <div class="popup_questions_item active">
+                <img class="default-img" src="/assets/images/popup-chat.svg" alt="chat">
+                <img class="active-img" src="/assets/images/popup-chat-active.svg" alt="chat">
+                <div class="popup_questions_item_text">我需要高耐熱材質</div>
+              </div>
+              <div class="popup_questions_item">
+                <img class="default-img" src="/assets/images/popup-chat.svg" alt="chat">
+                <img class="active-img" src="/assets/images/popup-chat-active.svg" alt="chat">
+                <div class="popup_questions_item_text">我需要一種能在高溫環境下運作的軸承，有推薦的嗎？</div>
+              </div>
+              <div class="popup_questions_item">
+                <img class="default-img" src="/assets/images/popup-chat.svg" alt="chat">
+                <img class="active-img" src="/assets/images/popup-chat-active.svg" alt="chat">
+                <div class="popup_questions_item_text">我要找一種低噪音的直線導軌，可以幫我篩選一下嗎？</div>
+              </div>
+              <div class="popup_questions_item">
+                <img class="default-img" src="/assets/images/popup-chat.svg" alt="chat">
+                <img class="active-img" src="/assets/images/popup-chat-active.svg" alt="chat">
+                <div class="popup_questions_item_text">希望這次能找到低噪音的氣壓元件</div>
+              </div>
+              <div class="popup_questions_item">
+                <img class="default-img" src="/assets/images/popup-chat.svg" alt="chat">
+                <img class="active-img" src="/assets/images/popup-chat-active.svg" alt="chat">
+                <div class="popup_questions_item_text">嗯…我最近在找一種氣壓元件，但有個小困擾，一直都覺得機器運轉時的聲音太吵了。之前試過幾款都還是會有明顯的氣流聲或震動，不太適合放在比較安靜的作業環境。 這次真的很希望可以找到一款低噪音一點的，最好是那種設計上就有強調靜音效果的型號，有的話能幫我推薦看看嗎？</div>
+              </div>
+            </div>
+            <!-- 建議內容 -->
+            <div class="popup_suggest">
+              <!-- 回覆建議 -->
+              <div class="popup_suggest_answer">
+                <div class="popup_suggest_title">
+                  <img src="/assets/images/popup-search.svg" alt="search">
+                  <div class="popup_suggest_title_text">建議</div>
+                </div>
+                <div class="popup_suggest_content">
+                  若您正在尋找適用於高溫環境的材料，我可以協助您篩選出具備優異耐熱性能的金屬或複合材質。舉例來說，氟橡膠（FKM）密封件可承受高達 300°C 的工作溫度，廣泛應用於汽車引擎、工業加熱系統與化學處理設備；而陶瓷軸承則具有極佳的熱穩定性與低膨脹係數，即使在高速或長時間運作下，也能保持尺寸精度與運作穩定。
+                  若您正在尋找適用於高溫環境的材料，我可以協助您篩選出具備優異耐熱性能的金屬或複合材質。舉例來說，氟橡膠（FKM）密封件可承受高達 300°C 的工作溫度，廣泛應用於汽車引擎、工業加熱系統與化學處理設備；而陶瓷軸承則具有極佳的熱穩定性與低膨脹係數，即使在高速或長時間運作下，也能保持尺寸精度與運作穩定。
+                </div>
+              </div>
+              <!-- 回覆建議商品 -->
+              <div class="popup_suggest_products">
+                <!-- 商品項目 -->
+                <div class="popup_suggest_products_item">
+                  <div class="product_info">
+                    <div class="product_info_img">
+                      <img src="/assets/images/popup-example-1.png" alt="product">
+                    </div>
+                    <div class="product_info_content">
+                      <div class="product_info_content_model">FlexDrive X80</div>
+                      <div class="product_info_content_title">動軸傳動科技</div>
+                      <button class="product_info_content_button">聯絡供應商</button>
+                    </div>
+                  </div>
+                  <div class="product_introduction">
+                    FlexDrive X80搭配使用的精密機械元件，是一種將旋轉運動轉換為直線運動的高效率傳動裝置。它的關鍵特點是：在螺桿與螺母之間利用鋼珠滾動來降低摩擦與提高精度。
+                  </div>
+                </div>
+                <!-- 商品項目 -->
+                <div class="popup_suggest_products_item">
+                  <div class="product_info">
+                    <div class="product_info_img">
+                      <img src="/assets/images/popup-example-2.png" alt="product">
+                    </div>
+                    <div class="product_info_content">
+                      <div class="product_info_content_model">NeuroScan M2</div>
+                      <div class="product_info_content_title">賽維亞神經科技</div>
+                      <div class="product_info_content_button">聯絡供應商</div>
+                    </div>
+                  </div>
+                  <div class="product_introduction">
+                    NeuroScan M2是一套高階腦電波研究系統，結合硬體（EEG擷取）與軟體（信號分析），廣泛應用於神經科學、心理學、腦機介面與臨床診斷等領域。
+                  </div>
+                </div>
+                <!-- 商品項目 -->
+                <div class="popup_suggest_products_item">
+                  <div class="product_info">
+                    <div class="product_info_img">
+                      <img src="/assets/images/popup-example-1.png" alt="product">
+                    </div>
+                    <div class="product_info_content">
+                      <div class="product_info_content_model">FlexDrive X80</div>
+                      <div class="product_info_content_title">動軸傳動科技</div>
+                      <div class="product_info_content_button">聯絡供應商</div>
+                    </div>
+                  </div>
+                  <div class="product_introduction">
+                    FlexDrive X80搭配使用的精密機械元件，是一種將旋轉運動轉換為直線運動的高效率傳動裝置。它的關鍵特點是：在螺桿與螺母之間利用鋼珠滾動來降低摩擦與提高精度。
+                  </div>
+                </div>
+                <!-- 商品項目 -->
+                <div class="popup_suggest_products_item">
+                  <div class="product_info">
+                    <div class="product_info_img">
+                      <img src="/assets/images/popup-example-2.png" alt="product">
+                    </div>
+                    <div class="product_info_content">
+                      <div class="product_info_content_model">NeuroScan M2</div>
+                      <div class="product_info_content_title">賽維亞神經科技</div>
+                      <div class="product_info_content_button">聯絡供應商</div>
+                    </div>
+                  </div>
+                  <div class="product_introduction">
+                    NeuroScan M2是一套高階腦電波研究系統，結合硬體（EEG擷取）與軟體（信號分析），廣泛應用於神經科學、心理學、腦機介面與臨床診斷等領域。
+                  </div>
+                </div>
+              </div>
+              <!-- 提問 Input -->
+              <div class="popup_suggest_input">
+                <input type="text" placeholder="提出後續問題" id="popup_suggest_input_text" oninput="popup_suggest_input_text_oninput()">
+                <div class="popup_suggest_input_button" onclick="handleSend()">
+                  <img src="/assets/images/popup-send-default.svg" alt="send">
+
+                  <!-- 灰 中止 -->
+                  <!-- <img src="/assets/images/popup-stop-default.svg" alt="stop"> -->
+                  <!-- 橘 中止 -->
+                  <!-- <img src="/assets/images/popup-stop-active.svg" alt="stop"> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 關鍵字推薦 -->
+          <div class="ai_search_popup_content_recommend">
+            <div class="popup_title">
+              <img src="/assets/images/popup-chat-active.svg" alt="chat">
+              <div class="popup_title_text">關鍵字推薦</div>
+            </div>
+
+            <!-- loading -->
+            <div class="popup_recommend_loading" id="popup_recommend_loading">
+              <img src="/assets/images/loading.svg" alt="loading">
+            </div>
+            
+            <!-- 推薦內容 -->
+            <div class="popup_recommend_content" id="popup_recommend_content">
+              
+              <!-- 推薦輪播 -->
+              <div class="popup_recommend_content_area">
+                <div class="popup_recommend_content_title">
+                  機械加工／傳動元件
+                  <div class="popup_recommend_content_title_more">
+                    看更多
+                    <img src="/assets/images/popup-angle-right-sm.svg" alt="more">
+                  </div>
+                </div>
+                <div class="swiper-container">
+                  <a href="javascript:;" class="swiper-button-prev cursor swiper-prev-1">
+                    <img src="./assets/images/popup-angle-left.svg" alt="prev">
+                  </a>
+                  <div class="popup_recommend_content_swiper swiper" id="popup_recommend_content_swiper_1">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide slide_product_item">
+                        <img src="/assets/images/popup-example-1.png" alt="example">
+                        <div class="product_info">
+                          <div class="product_info_model">FlexDrive X80</div>
+                          <div class="product_info_title">動軸傳動科技</div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide slide_product_item">
+                        <img src="/assets/images/popup-example-1.png" alt="example">
+                        <div class="product_info">
+                          <div class="product_info_model">FlexDrive X80</div>
+                          <div class="product_info_title">動軸傳動科技</div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide slide_product_item">
+                        <img src="/assets/images/popup-example-1.png" alt="example">
+                        <div class="product_info">
+                          <div class="product_info_model">FlexDrive X80</div>
+                          <div class="product_info_title">動軸傳動科技</div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide slide_product_item">
+                        <img src="/assets/images/popup-example-1.png" alt="example">
+                        <div class="product_info">
+                          <div class="product_info_model">FlexDrive X80</div>
+                          <div class="product_info_title">動軸傳動科技</div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide slide_product_item">
+                        <img src="/assets/images/popup-example-1.png" alt="example">
+                        <div class="product_info">
+                          <div class="product_info_model">FlexDrive X80</div>
+                          <div class="product_info_title">動軸傳動科技</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="javascript:;" class="swiper-button-next cursor swiper-next-1">
+                    <img src="./assets/images/popup-angle-right.svg" alt="next">
+                  </a>   
+                </div>
+               
+              </div>  
+              <!-- 推薦輪播 -->
+              <div class="popup_recommend_content_area">
+                <div class="popup_recommend_content_title">
+                  機械加工／傳動元件
+                  <div class="popup_recommend_content_title_more">
+                    看更多
+                    <img src="/assets/images/popup-angle-right-sm.svg" alt="more">
+                  </div>
+                </div>
+                <div class="swiper-container">
+                  <a href="javascript:;" class="swiper-button-prev cursor swiper-prev-2">
+                    <img src="./assets/images/popup-angle-left.svg" alt="prev">
+                  </a>
+                  <div class="popup_recommend_content_swiper swiper" id="popup_recommend_content_swiper_2">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide slide_product_item">
+                        <img src="/assets/images/popup-example-1.png" alt="example">
+                        <div class="product_info">
+                          <div class="product_info_model">FlexDrive X80</div>
+                          <div class="product_info_title">動軸傳動科技</div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide slide_product_item">
+                        <img src="/assets/images/popup-example-1.png" alt="example">
+                        <div class="product_info">
+                          <div class="product_info_model">FlexDrive X80</div>
+                          <div class="product_info_title">動軸傳動科技</div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide slide_product_item">
+                        <img src="/assets/images/popup-example-1.png" alt="example">
+                        <div class="product_info">
+                          <div class="product_info_model">FlexDrive X80</div>
+                          <div class="product_info_title">動軸傳動科技</div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide slide_product_item">
+                        <img src="/assets/images/popup-example-1.png" alt="example">
+                        <div class="product_info">
+                          <div class="product_info_model">FlexDrive X80</div>
+                          <div class="product_info_title">動軸傳動科技</div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide slide_product_item">
+                        <img src="/assets/images/popup-example-1.png" alt="example">
+                        <div class="product_info">
+                          <div class="product_info_model">FlexDrive X80</div>
+                          <div class="product_info_title">動軸傳動科技</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="javascript:;" class="swiper-button-next cursor swiper-next-2">
+                    <img src="./assets/images/popup-angle-right.svg" alt="next">
+                  </a>   
+                </div>
+               
+              </div>  
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <script>
+      // 輪播
+      var recommendSwiper = new Swiper ('#popup_recommend_content_swiper_1', {
+        loop: true,
+        pagination: false,
+        slidesPerView: 2.2,
+        spaceBetween: 8,
+        navigation: {
+          nextEl: '.swiper-next-1',
+          prevEl: '.swiper-prev-1',
+        }
+      })     
+      var recommendSwiper2 = new Swiper ('#popup_recommend_content_swiper_2', {
+        loop: true,
+        pagination: false,
+        slidesPerView: 2.2,
+        spaceBetween: 8,
+        navigation: {
+          nextEl: '.swiper-next-2',
+          prevEl: '.swiper-prev-2',
+        }
+      })     
+
+      function openAiSearch(){
+        document.querySelector('#ai_search_popup').style.display = 'flex';
+      }
+      function closeAiSearch(){
+        document.querySelector('#ai_search_popup').style.display = 'none';
+      }
+
+      function popup_suggest_input_text_oninput(){
+        const popup_suggest_input_text = document.querySelector('#popup_suggest_input_text');
+        if(popup_suggest_input_text.value.length > 0){
+          document.querySelector('.popup_suggest_input_button img').src = '/assets/images/popup-send-active.svg';
+        }else{
+          document.querySelector('.popup_suggest_input_button img').src = '/assets/images/popup-send-default.svg';
+        }
+      }
+
+      function handleSend(){
+        const popup_suggest_input_text = document.querySelector('#popup_suggest_input_text');
+        popup_suggest_input_text.value = '';
+        if(popup_suggest_input_text.value.length > 0){
+          document.querySelector('.popup_suggest_input_button img').src = '/assets/images/popup-send-active.svg';
+        }else{
+          document.querySelector('.popup_suggest_input_button img').src = '/assets/images/popup-send-default.svg';
+        }
+        document.querySelector('#popup_recommend_loading').style.display = 'flex';
+        document.querySelector('#popup_recommend_content').style.display = 'none';
+
+        setTimeout(() => {
+          document.querySelector('#popup_recommend_loading').style.display = 'none';
+          document.querySelector('#popup_recommend_content').style.display = 'flex';
+        }, 2000);
+      }
+    </script>
+    <!-- jquery  -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+   
+  </body>
+</html>
