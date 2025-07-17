@@ -235,6 +235,7 @@
   border: none;
   cursor: pointer;
   margin-top: 7px;
+  text-decoration: none;
 }
 
 .ai_search_popup .ai_search_popup_content .popup_suggest .popup_suggest_products .popup_suggest_products_item .product_introduction{
@@ -329,6 +330,7 @@
   top: 0;
   height: 22px;
   cursor: pointer;
+  text-decoration: none;
 }
 .popup_recommend_content .popup_recommend_content_area .popup_recommend_content_title .popup_recommend_content_title_more img{
   width: 13px;
@@ -365,6 +367,7 @@
   height: 100%;
   overflow: hidden;
   cursor: pointer;
+  text-decoration: none;
 }
 .popup_recommend_content .popup_recommend_content_area .swiper-container .slide_product_item img{
   width: 100%;
