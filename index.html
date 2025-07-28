@@ -83,77 +83,13 @@
                   <img src="/assets/images/popup-search.svg" alt="search">
                   <div class="popup_suggest_title_text">建議</div>
                 </div>
-                <div class="popup_suggest_content">
-                  若您正在尋找適用於高溫環境的材料，我可以協助您篩選出具備優異耐熱性能的金屬或複合材質。舉例來說，氟橡膠（FKM）密封件可承受高達 300°C 的工作溫度，廣泛應用於汽車引擎、工業加熱系統與化學處理設備；而陶瓷軸承則具有極佳的熱穩定性與低膨脹係數，即使在高速或長時間運作下，也能保持尺寸精度與運作穩定。
-                  若您正在尋找適用於高溫環境的材料，我可以協助您篩選出具備優異耐熱性能的金屬或複合材質。舉例來說，氟橡膠（FKM）密封件可承受高達 300°C 的工作溫度，廣泛應用於汽車引擎、工業加熱系統與化學處理設備；而陶瓷軸承則具有極佳的熱穩定性與低膨脹係數，即使在高速或長時間運作下，也能保持尺寸精度與運作穩定。
+                <div class="popup_suggest_content" id="popup_suggest_content">
+                  
                 </div>
               </div>
               <!-- 回覆建議商品 -->
-              <div class="popup_suggest_products">
-                <!-- 商品項目 -->
-                <div class="popup_suggest_products_item">
-                  <div class="product_info">
-                    <div class="product_info_img">
-                      <img src="/assets/images/popup-example-1.png" alt="product">
-                    </div>
-                    <div class="product_info_content">
-                      <div class="product_info_content_model">FlexDrive X80</div>
-                      <div class="product_info_content_title">動軸傳動科技</div>
-                      <button class="product_info_content_button">聯絡供應商</button>
-                    </div>
-                  </div>
-                  <div class="product_introduction">
-                    FlexDrive X80搭配使用的精密機械元件，是一種將旋轉運動轉換為直線運動的高效率傳動裝置。它的關鍵特點是：在螺桿與螺母之間利用鋼珠滾動來降低摩擦與提高精度。
-                  </div>
-                </div>
-                <!-- 商品項目 -->
-                <div class="popup_suggest_products_item">
-                  <div class="product_info">
-                    <div class="product_info_img">
-                      <img src="/assets/images/popup-example-2.png" alt="product">
-                    </div>
-                    <div class="product_info_content">
-                      <div class="product_info_content_model">NeuroScan M2</div>
-                      <div class="product_info_content_title">賽維亞神經科技</div>
-                      <a class="product_info_content_button" href="https://www.tairoab2b.com/industry/238#product677" target="_blank">聯絡供應商</a>
-                    </div>
-                  </div>
-                  <div class="product_introduction">
-                    NeuroScan M2是一套高階腦電波研究系統，結合硬體（EEG擷取）與軟體（信號分析），廣泛應用於神經科學、心理學、腦機介面與臨床診斷等領域。
-                  </div>
-                </div>
-                <!-- 商品項目 -->
-                <div class="popup_suggest_products_item">
-                  <div class="product_info">
-                    <div class="product_info_img">
-                      <img src="/assets/images/popup-example-1.png" alt="product">
-                    </div>
-                    <div class="product_info_content">
-                      <div class="product_info_content_model">FlexDrive X80</div>
-                      <div class="product_info_content_title">動軸傳動科技</div>
-                      <a class="product_info_content_button" href="https://www.tairoab2b.com/industry/238#product677" target="_blank">聯絡供應商</a>
-                    </div>
-                  </div>
-                  <div class="product_introduction">
-                    FlexDrive X80搭配使用的精密機械元件，是一種將旋轉運動轉換為直線運動的高效率傳動裝置。它的關鍵特點是：在螺桿與螺母之間利用鋼珠滾動來降低摩擦與提高精度。
-                  </div>
-                </div>
-                <!-- 商品項目 -->
-                <div class="popup_suggest_products_item">
-                  <div class="product_info">
-                    <div class="product_info_img">
-                      <img src="/assets/images/popup-example-2.png" alt="product">
-                    </div>
-                    <div class="product_info_content">
-                      <div class="product_info_content_model">NeuroScan M2</div>
-                      <div class="product_info_content_title">賽維亞神經科技</div>
-                      <a class="product_info_content_button" href="https://www.tairoab2b.com/industry/238#product677" target="_blank">聯絡供應商</a>
-                    </div>
-                  </div>
-                  <div class="product_introduction">
-                    NeuroScan M2是一套高階腦電波研究系統，結合硬體（EEG擷取）與軟體（信號分析），廣泛應用於神經科學、心理學、腦機介面與臨床診斷等領域。
-                  </div>
-                </div>
+              <div class="popup_suggest_products" id="popup_suggest_products">
+                <!-- 商品項目將通過JavaScript動態插入 -->
               </div>
               <!-- 提問 Input -->
               <div class="popup_suggest_input">
@@ -511,6 +447,119 @@
         }
       } 
 
+      // 回答文本数据
+      const aiSummarizedRecommend = [
+        '若您正在尋找適用於高溫環境的材料，我可以協助您篩選出具備優異耐熱性能的金屬或複合材質。舉例來說，氟橡膠（FKM）密封件可承受高達 300°C 的工作溫度，廣泛應用於汽車引擎、工業加熱系統與化學處理設備；而陶瓷軸承則具有極佳的熱穩定性與低膨脹係數，即使在高速或長時間運作下，也能保持尺寸精度與運作穩定。',
+        '針對高溫環境軸承的需求，我推薦您考慮陶瓷軸承或是高溫鋼材製成的軸承。陶瓷軸承具有優異的耐熱性、低熱膨脹係數及良好的化學穩定性，適用於高達1000°C的工作環境。若預算考量，高溫軸承鋼如440C或17-4PH不鏽鋼也是不錯的選擇，可承受400-500°C的工作溫度。',
+        '低噪音直線導軌的選擇需要注意幾個關鍵因素：滾珠與滑軌材質、潤滑系統設計、以及安裝精度。建議您選擇配備靜音滾珠設計的導軌，搭配高品質潤滑脂，能有效降低運行噪音至35dB以下。此外，線性馬達驅動的導軌系統也是低噪音的優秀選擇。',
+        '低噪音氣壓元件的關鍵在於消音器設計和氣流控制。推薦使用配備多級消音器的氣缸，以及具有緩衝功能的氣壓閥。此外，選擇品質優良的密封件和精密加工的氣缸壁面，也能顯著降低氣流噪音和機械震動。',
+        '對於靜音氣壓元件的需求，我完全理解您的困擾。建議您選擇專為靜音設計的氣壓系列產品，這些產品通常配備先進的消音技術和減震設計。您可以考慮使用伺服氣缸搭配比例閥的組合，不僅能精確控制速度，還能大幅降低噪音。另外，良好的管路設計和適當的安裝方式也能進一步改善噪音問題。'
+      ];
+
+      // 商品數據
+      const aiGroupItemsRecommend= [
+          {
+            image: '/assets/images/popup-example-1.png',
+            model: 'ServoAir Silent',
+            company: '伺服氣壓系統',
+            link: 'https://www.tairoab2b.com/industry/238#product677',
+            description: 'ServoAir Silent伺服氣缸系統，配備先進消音技術和減震設計，精確控制速度的同時實現超低噪音運行。'
+          },
+          {
+            image: '/assets/images/popup-example-2.png',
+            model: 'ProportionValve Quiet',
+            company: '比例閥控制',
+            link: 'https://www.tairoab2b.com/industry/238#product677',
+            description: 'ProportionValve Quiet比例閥，提供精密的氣流控制，配合伺服氣缸使用可大幅降低運行噪音。'
+          },
+          {
+            image: '/assets/images/popup-example-1.png',
+            model: 'OptimalPipe System',
+            company: '管路設計工程',
+            link: 'https://www.tairoab2b.com/industry/238#product677',
+            description: 'OptimalPipe System優化管路設計方案，通過合理的管路佈局和安裝方式，進一步改善氣壓系統的噪音問題。'
+          }
+      ];
+
+      // 打字机效果函数
+      function typeWriter(text, elementId, speed = 50) {
+        const element = document.getElementById(elementId);
+        element.innerHTML = '';
+        let i = 0;
+        
+        function typing() {
+          if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typing, speed);
+          }
+        }
+        
+        typing();
+      }
+
+      // 创建商品项目DOM元素
+      function createProductItem(product) {
+        const productItem = document.createElement('div');
+        productItem.className = 'popup_suggest_products_item';
+        
+        const buttonElement = product.link ? 
+          `<a class="product_info_content_button" href="${product.link}" target="_blank">聯絡供應商</a>` :
+          `<button class="product_info_content_button">聯絡供應商</button>`;
+        
+        productItem.innerHTML = `
+          <div class="product_info">
+            <div class="product_info_img">
+              <img src="${product.image}" alt="product">
+            </div>
+            <div class="product_info_content">
+              <div class="product_info_content_model">${product.model}</div>
+              <div class="product_info_content_title">${product.company}</div>
+              ${buttonElement}
+            </div>
+          </div>
+          <div class="product_introduction">
+            ${product.description}
+          </div>
+        `;
+        
+        return productItem;
+      }
+
+      // 根据数据逐个加载商品
+      function loadProductsSequentially(questionIndex) {
+        const productContainer = document.getElementById('popup_suggest_products');
+        const products = aiGroupItemsRecommend;
+        
+        // 清空现有商品
+        productContainer.innerHTML = '';
+        productContainer.scrollTop = 0;
+        
+        // 逐个插入商品
+        products.forEach((product, index) => {
+          setTimeout(() => {
+            const productItem = createProductItem(product);
+            productContainer.appendChild(productItem);
+            
+            // 滚动到新添加的商品
+            setTimeout(() => {
+              const containerHeight = productContainer.clientHeight;
+              const itemTop = productItem.offsetTop;
+              const itemHeight = productItem.offsetHeight;
+              
+              // 计算滚动位置，让新商品显示在视窗中
+              const scrollPosition = Math.max(0, itemTop - containerHeight / 2 + itemHeight / 2);
+              
+              productContainer.scrollTo({
+                top: scrollPosition,
+                behavior: 'smooth'
+              });
+            }, 100); // 等待DOM更新
+            
+          }, index * 600); // 每个商品间隔600ms插入
+        });
+      }
+
       // 提問點擊
       function handleQuestionClick(index){
         const popup_questions_item = document.querySelectorAll('.popup_questions_item');
@@ -521,7 +570,33 @@
             item.classList.remove('active');
           }
         });
+
+        // 清空商品
+        document.querySelector('#popup_suggest_products').innerHTML = '';
+        
+        // 启动打字机效果
+        if(aiSummarizedRecommend[index]) {
+          typeWriter(aiSummarizedRecommend[index], 'popup_suggest_content', 30);
+        }
+        
+        // 开始加载对应的商品数据
+        setTimeout(() => {
+          loadProductsSequentially(index);
+        }, 1000); // 等待打字机效果显示一段时间后开始加载商品
       }
+
+      // 页面加载完成后初始化第一个问题的商品
+      window.addEventListener('DOMContentLoaded', function() {
+        // 设置第一个问题的答案
+        if(aiSummarizedRecommend[0]) {
+          typeWriter(aiSummarizedRecommend[0], 'popup_suggest_content', 30);
+        }
+        
+        // 加载第一个问题的商品
+        setTimeout(() => {
+          loadProductsSequentially(0);
+        }, 800);
+      });
       
       // 提問 Input 輸入
       function popup_suggest_input_text_oninput(){
